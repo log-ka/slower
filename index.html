@@ -3,12 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Template Page</title>
+    <title>Olympiad Thinking Log</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hello World</h1>
-    <p>This is a template HTML page.</p>
+    <main>
+        <header>
+            <h1>Olympiad Thinking Log</h1>
+            <p>Track your reasoning process for programming olympiad problems.</p>
+        </header>
+
+        <section>
+            <h2>Add / Update Problem</h2>
+            <form id="problem-form">
+                <div>
+                    <label for="problem-id">Problem ID</label>
+                    <input id="problem-id" name="problem-id" type="text" required>
+                </div>
+                <div>
+                    <label for="problem-title">Title</label>
+                    <input id="problem-title" name="problem-title" type="text" required>
+                </div>
+                <div>
+                    <label for="source-olympiad">Olympiad</label>
+                    <input id="source-olympiad" name="source-olympiad" type="text" required>
+                </div>
+                <div>
+                    <label for="source-year">Year</label>
+                    <input id="source-year" name="source-year" type="number" required>
+                </div>
+                <div>
+                    <label for="source-stage">Stage</label>
+                    <input id="source-stage" name="source-stage" type="text" required>
+                </div>
+                <div>
+                    <label for="source-class">Class</label>
+                    <input id="source-class" name="source-class" type="number" required>
+                </div>
+                <div>
+                    <label for="metadata-topics">Topics (comma separated)</label>
+                    <input id="metadata-topics" name="metadata-topics" type="text" placeholder="graphs, dp, geometry">
+                </div>
+                <div>
+                    <label for="metadata-key">Key property</label>
+                    <input id="metadata-key" name="metadata-key" type="text" placeholder="invariant, symmetry, etc.">
+                </div>
+                <div>
+                    <label for="solution-status">Solution status</label>
+                    <select id="solution-status" name="solution-status">
+                        <option value="unsolved">Unsolved</option>
+                        <option value="partial">Partial</option>
+                        <option value="solved">Solved</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="solution-idea">Initial idea</label>
+                    <textarea id="solution-idea" name="solution-idea" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="solution-failure">Where it failed</label>
+                    <textarea id="solution-failure" name="solution-failure" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="solution-final">Final solution</label>
+                    <textarea id="solution-final" name="solution-final" rows="3"></textarea>
+                </div>
+                <div>
+                    <label for="solution-mistakes">Mistakes (comma separated)</label>
+                    <input id="solution-mistakes" name="solution-mistakes" type="text" placeholder="missed case, wrong bound">
+                </div>
+                <div>
+                    <label for="solution-insights">Insights (comma separated)</label>
+                    <input id="solution-insights" name="solution-insights" type="text" placeholder="key lemma, transform">
+                </div>
+                <div>
+                    <label for="attempts-log">Attempts (one per line: YYYY-MM-DD | result)</label>
+                    <textarea id="attempts-log" name="attempts-log" rows="4" placeholder="2024-05-01 | fail"></textarea>
+                </div>
+                <div>
+                    <button type="submit">Save Problem</button>
+                    <button type="button" id="new-problem-button">New Entry</button>
+                </div>
+            </form>
+            <div id="status-message" role="status" aria-live="polite"></div>
+        </section>
+
+        <section>
+            <h2>Saved Problems</h2>
+            <div id="problems-container"></div>
+        </section>
+    </main>
     <script src="script.js"></script>
 </body>
 </html>
